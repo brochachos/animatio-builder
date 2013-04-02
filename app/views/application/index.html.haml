@@ -1,1 +1,515 @@
-%h1 Doc Here!
+%header#header
+  .wrapper
+    %h1
+      animatio
+      %span.ext .js
+    %ul#nav.pull-right
+      %li.active
+        %a{:href => "#getting-started"} Getting Started
+      %li
+        %a{:href => "#effects"} Using Effects
+      %li
+        %a{:href => "#transforms"} Animating Elements
+      %li
+        %a{:href => "#customize"} Customize
+#content
+  %section#splash-wrapper
+    #splash
+      %h1 animatio
+      %h2 jQuery CSS3 Animations Plugin
+      %h2
+      #download
+        %a.btn.btn-large{:href => "http://github.com/dysfunc/animatio"} Download on Github
+  %hr/
+  .wrapper
+    %section#getting-started
+      %h2 Getting Started
+      .row
+        .span6
+          %h5 Usage
+          %p
+            You can apply any effect by just by calling
+            %code .effect
+            method and defining the effect type to any element.
+        .span6
+          %pre.prettyprint.linenums.lang-js.js
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).effect('fadeIn');
+
+              &lt;/script&gt;
+      .row
+        #basic.span6
+          %h5 Configure
+          %p
+            Effects are completely customizable. Default configuration settings:
+          %ul.unstyled
+            %li
+              %code duration
+              Default: '1s'
+            %li
+              %code timing
+              Default: 'ease'
+            %li
+              %code plays
+              Default: 1
+            %li
+              %code direction
+              Default: 'normal'
+            %li
+              %code delay
+              Default: '0s'
+            %li
+              %code fillMode
+              Default: 'forwards'
+          You can read more about each configurable property here -
+          %a{:href => "http://www.w3.org/TR/css3-animations/#timing-functions"} Official W3C Document
+        .span6
+          %pre.prettyprint.linenums
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).effect('pulse', {
+                  delay: '1s',
+                  duration: '2s',
+                  plays: 'infinite'
+                });
+
+              &lt;/script&gt;
+      .row
+        .span6
+          %h5 Callback
+          %p You can add an optional third parameter to define a callback function that will be executed when the animation ends.
+        .span6
+          %pre.prettyprint.linenums
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).effect('fadeIn', function(){
+                  $(this).effect('fadeOut');
+                });
+
+              &lt;/script&gt;
+      .row
+        .span6
+          %h5 Customize
+          %p
+            There are predefined animations that are ready to use (listed
+            = succeed ")." do
+              %a{:href => "#effects"} below
+            However, you can also create your own animation by setting it as a string in
+            = succeed "." do
+              %code config.rule
+          %p
+            %small
+              %b {browser}
+              is a place-holder that we will be updated with the correct browser prefix once the rule has been appended to the document head.
+        .span6
+          %pre.prettyprint.linenums
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).effect('moveLeft', {
+                  rule: "0% { {browser}transform: translateX(0);}, 100% { {browser}transform: translateX(100);}"
+                });
+
+              &lt;/script&gt;
+    %hr/
+    %section#effects
+      %h2.heading Using Effects
+      .row-fluid
+        .span12
+          %h5 Predefined Effects
+          %p Below you'll find effect that can be used out-of-the-box.
+      .row-fluid.effects
+        .shazam.span4
+          %h5 Fade In
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "fadeIn"} fadeIn
+              %button.btn.block{"data-effect" => "fadeInUp"} fadeInUp
+              %button.btn.block{"data-effect" => "fadeInDown"} fadeInDown
+              %button.btn.block{"data-effect" => "fadeInLeft"} fadeInLeft
+              %button.btn.block{"data-effect" => "fadeInRight"} fadeInRight
+            .span6
+              %button.btn.block{"data-effect" => "fadeInUpBig"} fadeInUpBig
+              %button.btn.block{"data-effect" => "fadeInDownBig"} fadeInDownBig
+              %button.btn.block{"data-effect" => "fadeInLeftBig"} fadeInLeftBig
+              %button.btn.block{"data-effect" => "fadeInRightBig"} fadeInRightBig
+        .shazam.span4
+          %h5 Fade Out
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "fadeOut"} fadeOut
+              %button.btn.block{"data-effect" => "fadeOutUp"} fadeOutUp
+              %button.btn.block{"data-effect" => "fadeOutDown"} fadeOutDown
+              %button.btn.block{"data-effect" => "fadeOutLeft"} fadeOutLeft
+              %button.btn.block{"data-effect" => "fadeOutRight"} fadeOutRight
+            .span6
+              %button.btn.block{"data-effect" => "fadeOutUpBig"} fadeOutUpBig
+              %button.btn.block{"data-effect" => "fadeOutDownBig"} fadeOutDownBig
+              %button.btn.block{"data-effect" => "fadeOutLeftBig"} fadeOutLeftBig
+              %button.btn.block{"data-effect" => "fadeOutRightBig"} fadeOutRightBig
+        .shazam.span4
+          %h5 Slide
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "slideInLeft"} slideInLeft
+              %button.btn.block{"data-effect" => "slideInRight"} slideInRight
+            .span6
+              %button.btn.block{"data-effect" => "slideOutLeft"} slideOutLeft
+              %button.btn.block{"data-effect" => "slideOutRight"} slideOutRight
+      .row-fluid.mt20
+        .shazam.span4
+          %h5 Bounce
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "bounceIn"} bounceIn
+              %button.btn.block{"data-effect" => "bounceInUp"} bounceInUp
+              %button.btn.block{"data-effect" => "bounceInDown"} bounceInDown
+              %button.btn.block{"data-effect" => "bounceInLeft"} bounceInLeft
+              %button.btn.block{"data-effect" => "bounceInRight"} bounceInRight
+            .span6
+              %button.btn.block{"data-effect" => "bounceOut"} bounceOut
+              %button.btn.block{"data-effect" => "bounceOutUp"} bounceOutUp
+              %button.btn.block{"data-effect" => "bounceOutDown"} bounceOutDown
+              %button.btn.block{"data-effect" => "bounceOutLeft"} bounceOutLeft
+              %button.btn.block{"data-effect" => "bounceOutRight"} bounceOutRight
+        .shazam.span4
+          %h5 Rotate
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "rotateIn"} rotateIn
+              %button.btn.block{"data-effect" => "rotateInUpLeft"} rotateInUpLeft
+              %button.btn.block{"data-effect" => "rotateInDownLeft"} rotateInDownLeft
+              %button.btn.block{"data-effect" => "rotateInUpRight"} rotateInUpRight
+              %button.btn.block{"data-effect" => "rotateInDownRight"} rotateInDownRight
+            .span6
+              %button.btn.block{"data-effect" => "rotateOut"} rotateOut
+              %button.btn.block{"data-effect" => "rotateOutUpLeft"} rotateOutUpLeft
+              %button.btn.block{"data-effect" => "rotateOutDownLeft"} rotateOutDownLeft
+              %button.btn.block{"data-effect" => "rotateOutUpRight"} rotateOutUpRight
+              %button.btn.block{"data-effect" => "rotateOutDownRight"} rotateOutDownRight
+        .shazam.span4
+          %h5 Flip
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "flipIn"} flipIn
+              %button.btn.block{"data-effect" => "flipInX"} flipInX
+              %button.btn.block{"data-effect" => "flipInY"} flipInY
+            .span6
+              %button.btn.block{"data-effect" => "flipOut"} flipOut
+              %button.btn.block{"data-effect" => "flipOutX"} flipOutX
+              %button.btn.block{"data-effect" => "flipOutY"} flipOutY
+      .row-fluid.mt20
+        .shazam.span4
+          %h5 Zoom
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "zoomIn"} zoomIn
+              %button.btn.block{"data-effect" => "zoomInCurved"} zoomInCurved
+              %button.btn.block{"data-effect" => "zoomInFlip"} zoomInFlip
+            .span6
+              %button.btn.block{"data-effect" => "zoomOut"} zoomOut
+              %button.btn.block{"data-effect" => "zoomOutCurved"} zoomOutCurved
+              %button.btn.block{"data-effect" => "zoomOutFlip"} zoomOutFlip
+        .shazam.span4
+          %h5 Miscellaneous
+          .auto-margin.html-badge
+          .row-fluid
+            .span6
+              %button.btn.block{"data-effect" => "flash"} flash
+              %button.btn.block{"data-effect" => "shake"} shake
+              %button.btn.block{"data-effect" => "bounce"} bounce
+              %button.btn.block{"data-effect" => "tada"} tada
+              %button.btn.block{"data-effect" => "swing"} swing
+              %button.btn.block{"data-effect" => "wobble"} wobble
+              %button.btn.block{"data-effect" => "pulse"} pulse
+            .span6
+              %button.btn.block{"data-effect" => "hinge"} hinge
+              %button.btn.block{"data-effect" => "rollIn"} rollIn
+              %button.btn.block{"data-effect" => "rollOut"} rollOut
+              %button.btn.block{"data-effect" => "lightSpeedIn"} lightSpeedIn
+              %button.btn.block{"data-effect" => "lightSpeedOut"} lightSpeedOut
+              %button.btn.block{"data-effect" => "wiggle"} wiggle
+    %hr/
+    %section#transforms
+      %h2.mb20 Animating Elements
+      .row-fluid
+        .span6
+          %p You can easily transform any object by simply defining the properties you would like to animate.
+          %h4.mt20 Create using JS:
+          %pre.prettyprint.linenums.lang-js.mt10
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).transform({
+                  left: '-=100',
+                  top: '+=' + 60,
+                  opacity: 1,
+                  width: '+=' + 500,
+                  height: 200
+                });
+
+              &lt;/script&gt;
+        .span6
+          %p &nbsp;
+          %h4.mt20 Using callbacks:
+          %pre.prettyprint.linenums.lang-html.mt10
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).transform({
+                  left: '-=100',
+                  top: '+=' + 60
+                }, '1s', function(){
+                  $(this).transform({ width: 500 }, '1s');
+                })
+
+              &lt;/script&gt;
+      .row-fluid
+        .span12{:style => "position: relative; height: 500px;"}
+          %button#animate_box.btn.block Animate Box
+          #animate_me
+    %section#transform
+      .container-fliud.rel
+        #boxer Hello
+      .row-fluid
+        .span12
+          %button#rotate_screen.btn.block Rotate &amp; Shrink Box
+    %hr/
+    %section#customize.download
+      %h2 Customize &amp; Download
+      .row-fluid
+        .span3
+          %h5 Fade In
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeIn"}/
+            fadeIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInUp"}/
+            fadeInUp
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInDown"}/
+            fadeInDown
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInLeft"}/
+            fadeInLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInRight"}/
+            fadeInRight
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInUpBig"}/
+            fadeInUpBig
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInDownBig"}/
+            fadeInDownBig
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInLeftBig"}/
+            fadeInLeftBig
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeInRightBig"}/
+            fadeInRightBig
+          %h5 Fade Out
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOut"}/
+            fadeOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutUp"}/
+            fadeOutUp
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutDown"}/
+            fadeOutDown
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutLeft"}/
+            fadeOutLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutRight"}/
+            fadeOutRight
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutUpBig"}/
+            fadeOutUpBig
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutDownBig"}/
+            fadeOutDownBig
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutLeftBig"}/
+            fadeOutLeftBig
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "fadeOutRightBig"}/
+            fadeOutRightBig
+        .span3
+          %h5 Slide In
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "slideInLeft"}/
+            slideInLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "slideInRight"}/
+            slideInRight
+          %h5 Slide Out
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "slideOutLeft"}/
+            slideOutLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "slideOutRight"}/
+            slideOutRight
+          %h5 Bounce In
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceIn"}/
+            bounceIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceInUp"}/
+            bounceInUp
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceInDown"}/
+            bounceInDown
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceInLeft"}/
+            bounceInLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceInRight"}/
+            bounceInRight
+          %h5 Bounce Out
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceOut"}/
+            bounceOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceOutUp"}/
+            bounceOutUp
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceOutDown"}/
+            bounceOutDown
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceOutLeft"}/
+            bounceOutLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounceOutRight"}/
+            bounceOutRight
+        .span3
+          %h5 Rotate In
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateIn"}/
+            rotateIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateInUpLeft"}/
+            rotateInUpLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateInDownLeft"}/
+            rotateInDownLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateInUpRight"}/
+            rotateInUpRight
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateInDownRight"}/
+            rotateInDownRight
+          %h5 Rotate Out
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateOut"}/
+            rotateOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateOutUpLeft"}/
+            rotateOutUpLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateOutDownLeft"}/
+            rotateOutDownLeft
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateOutUpRight"}/
+            rotateOutUpRight
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rotateOutDownRight"}/
+            rotateOutDownRight
+          %h5 Flip In
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flipIn"}/
+            flipIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flipInX"}/
+            flipInX
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flipInY"}/
+            flipInY
+          %h5 Flip Out
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flipOut"}/
+            flipOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flipOutX"}/
+            flipOutX
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flipOutY"}/
+            flipOutY
+        .span3
+          %h5 Zoom In
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "zoomIn"}>/
+            zoomIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "zoomInCurved"}>/
+            zoomInCurved
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "zoomInFlip"}>/
+            zoomInFlip
+          %h5 Zoom Out
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "zoomOut"}>/
+            zoomOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "zoomOutCurved"}>/
+            zoomOutCurved
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "zoomOutFlip"}>/
+            zoomOutFlip
+          %h5 Miscellaneous
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "flash"}>/
+            flash
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "shake"}>/
+            shake
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "bounce"}>/
+            bounce
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "tada"}>/
+            tada
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "swing"}>/
+            swing
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "wobble"}>/
+            wobble
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "pulse"}>/
+            pulse
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "hinge"}>/
+            hinge
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rollIn"}>/
+            rollIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "rollOut"}>/
+            rollOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "lightSpeedIn"}>/
+            lightSpeedIn
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "lightSpeedOut"}>/
+            lightSpeedOut
+          %label.checkbox
+            %input{:checked => "checked", :type => "checkbox", :value => "wiggle"}>/
+            wiggle
