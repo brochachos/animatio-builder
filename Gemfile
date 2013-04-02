@@ -7,6 +7,7 @@ group :development, :test do
 end
 
 group :assets do
+  gem 'haml'
   gem 'uglifier', '>= 1.0.3'
 end
 
