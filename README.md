@@ -2,8 +2,10 @@
 
 Only call available so far:
 ```
-POST /build
+POST http://animatio.herokuapp.com/build
+```
 payload:
+```
 {
   animations: ['bounce', 'zoomOut', ...]
 }
