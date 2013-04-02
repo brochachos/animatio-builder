@@ -2,20 +2,39 @@ $(function(){
 
   window.prettyPrint && prettyPrint();
 
+  /*-------------------------------------
+    Widgets
+   -------------------------------------*/
+
+  $('[data-widget]').each(function(){
+    var element = $(this),
+        type = element.attr('data-widget');
+
+    if($.fn[type]){
+      element[type](element.data());
+    }else{
+      throw 'There was an error trying to load the following component: ' + type;
+    }
+  });
+
   var effectOptions = $('#effects-group input'),
       header = $('#header'),
       nav = $('#nav li'),
-      selected = true,
-      toggle = function(state){
-        return effectOptions.prop('checked', state) && (selected = state);
+      scrollOptions = $('#scrolling-group input'),
+      effectSelected = true,
+      scrollSelected = true,
+      toggle = function(state, which){
+        var options = !which ? effectOptions : scrollOptions;
+        return options.prop('checked', state) && (!which ? (effectSelected = state) : (scrollSelected = state));
       };
-
-  $('h1', header).effect('slideInLeft');
-  $('ul', header).effect('slideInRight');
 
   header.effect('fadeInDownBig', function(){
     $('#content').effect('fadeIn');
   });
+
+  /*-------------------------------------
+    Effects
+   -------------------------------------*/
 
   $('#effects button').each(function(){
     $(this).on('click', function(){
@@ -27,6 +46,10 @@ $(function(){
       });
     });
   });
+
+  /*-------------------------------------
+    Transforms
+   -------------------------------------*/
 
   $('#animate-box').on('click', function(){
     $('#size-box').transform({ left: '-=100', top: '+=' + 60, opacity: 1, width: '+=' + 500, height: 200 }, '1s', function(){
@@ -55,16 +78,42 @@ $(function(){
     });
   });
 
+  /*-------------------------------------
+    Scrolling
+   -------------------------------------*/
+
+  $('.scroll-effects').find('div[data-widget="animateScroll"]').remove();
+
+  var list = $('#list'),
+      title = $('#current');
+
+  $('#scrolling button').each(function(){
+    $(this).on('click', function(){
+      var effect = $(this).data('effect'),
+          last = list.data('last');
+
+      list.removeClass(last).addClass(effect).data('last', effect);
+
+      title.text('Demo: ' + effect.charAt(0).toUpperCase() + effect.substr(1));
+
+    });
+  });
+
+  /*-------------------------------------
+    Customize
+   -------------------------------------*/
+
   $('a', nav).on('click', function(e){
     nav.removeClass('active');
     $(this).parent().addClass('active');
   });
 
-  $('#toggle').on('click', function(){
-    return toggle(selected ? false : true);
+  $('#toggle, #toggle-scrolling').on('click', function(){
+    var isScroll = this.id === 'toggle-scrolling' || null;
+    return toggle((isScroll ? scrollSelected : effectSelected) ? false : true, isScroll);
   });
 
-  $('#effects-cb').on('change', function(){
-    return toggle(this.checked ? true : false);
+  $('#effects-cb, #scrolling-cb').on('change', function(){
+    return toggle(this.checked ? true : false, this.id === 'scrolling-cb');
   });
 });

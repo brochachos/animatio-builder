@@ -87,10 +87,9 @@ h5 {
   background-color: #ebebeb;
 }
 
-.wrapper {
+.container {
   margin: 0 auto;
   position: relative;
-  width: 1180px;
 }
 
 section {
@@ -227,6 +226,75 @@ section {
 
 #transform {
   min-height: 300px;
+}
+
+/*-------------------------------------
+  Scrolling
+ -------------------------------------*/
+
+.tile-large,
+.tile-mini,
+.tile-large-single {
+  background-color: #aaa;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+.tile-large img,
+.tile-mini img {
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.tile-large {
+  height: 210px;
+}
+
+.tile-large-single {
+  height: 100px;
+}
+
+.tile-mini {
+  background-color: #ccc;
+  height: 100px;
+}
+
+.list-wrapper {
+  background: #444;
+  border-radius: 6px;
+  margin: 0;
+  padding: 5px;
+}
+
+.animate-scroll {
+  border-radius: 6px;
+  position: relative;
+  height: 405px;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  list-style: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  -ms-perspective: 600px;
+  -o-perspective: 600px;
+  perspective: 600px;
+}
+
+.gray {
+  background: #bbb;
 }
 
 /*-------------------------------------
