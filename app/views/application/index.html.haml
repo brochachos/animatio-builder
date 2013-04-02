@@ -1,7 +1,7 @@
 %header#header
   .wrapper
     %h1
-      animatio<span class="ext">.js</span>
+      animat.<span class="silver">io</span>
     %ul#nav.pull-right
       %li.active
         %a{:href => "#getting-started"} Getting Started
@@ -12,14 +12,16 @@
       %li
         %a{:href => "#customize"} Customize
 #content
-  %section#splash-wrapper
+  %section#splash-wrapper.offwhite-bg
     #splash
-      %h1 animatio
-      %h2 jQuery CSS3 Animations Plugin
+      %h1 animat.io
+      %h2 jQuery CSS3 Animation Plugins
       %h2
       #download
         %a.btn.btn-large{:href => "http://github.com/dysfunc/animatio"} Download on Github
-  %hr
+
+  %hr.mtn
+
   .wrapper
     %section#getting-started
       %h2 Getting Started
@@ -121,7 +123,7 @@
     %hr
 
     %section#effects
-      %h2.heading Using Effects
+      %h2 Using Effects
       .row-fluid
         .span12
           %h5 Predefined Effects
@@ -245,11 +247,13 @@
               %button.btn.block{"data-effect" => "lightSpeedOut"} lightSpeedOut
               %button.btn.block{"data-effect" => "wiggle"} wiggle
     %hr
+
     %section#transforms
       %h2.mb20 Animating Elements
       .row-fluid
         .span6
           %p You can easily transform any object by simply defining the properties you would like to animate.
+
           %h4.mt20 Create using JS:
           %pre.prettyprint.linenums.lang-js.mt10
             :preserve
@@ -267,6 +271,7 @@
               &lt;/script&gt;
         .span6
           %p &nbsp;
+
           %h4.mt20 Using callbacks:
           %pre.prettyprint.linenums.lang-html.mt10
             :preserve
@@ -281,253 +286,280 @@
                 })
 
               &lt;/script&gt;
+
       .row-fluid
         .span12{:style => "position: relative; height: 500px;"}
-          %button#animate_box.btn.block Animate Box
-          #animate_me
+          %button#animate-box.btn.block Animating CSS Properties
+          #size-box
+
     %section#transform
-      .container-fliud.rel
-        #boxer Hello
+      .row-fliud.rel
+        #boxer Animate me!
+
       .row-fluid
         .span12
-          %button#rotate_screen.btn.block Rotate &amp; Shrink Box
+          %button#twist-box.btn.block Using CSS Transforms and Properties
+
     %hr
-    %section#customize.download
-      %form{ action: '/build', method: 'POST' }
-        %h2 Customize &amp; Download
+
+    %form{ action: '/build', method: 'POST' }
+      %section#customize.download
+        %h2 Customize Package
+        .pull-right
+          #toggle.btn.btn-small
+            Toggle all
         .row-fluid
           .span3
-            %h5 Fade In
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeIn"}
-              fadeIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInUp"}
-              fadeInUp
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInDown"}
-              fadeInDown
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInLeft"}
-              fadeInLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInRight"}
-              fadeInRight
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInUpBig"}
-              fadeInUpBig
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInDownBig"}
-              fadeInDownBig
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInLeftBig"}
-              fadeInLeftBig
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInRightBig"}
-              fadeInRightBig
-            %h5 Fade Out
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOut"}
-              fadeOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutUp"}
-              fadeOutUp
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutDown"}
-              fadeOutDown
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutLeft"}
-              fadeOutLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutRight"}
-              fadeOutRight
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutUpBig"}
-              fadeOutUpBig
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutDownBig"}
-              fadeOutDownBig
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutLeftBig"}
-              fadeOutLeftBig
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutRightBig"}
-              fadeOutRightBig
+            %h4 Choose Plugins
           .span3
-            %h5 Slide In
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideInLeft"}
-              slideInLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideInRight"}
-              slideInRight
-            %h5 Slide Out
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideOutLeft"}
-              slideOutLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideOutRight"}
-              slideOutRight
-            %h5 Bounce In
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceIn"}
-              bounceIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInUp"}
-              bounceInUp
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInDown"}
-              bounceInDown
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInLeft"}
-              bounceInLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInRight"}
-              bounceInRight
-            %h5 Bounce Out
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOut"}
-              bounceOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutUp"}
-              bounceOutUp
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutDown"}
-              bounceOutDown
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutLeft"}
-              bounceOutLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutRight"}
-              bounceOutRight
-          .span3
-            %h5 Rotate In
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateIn"}
-              rotateIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInUpLeft"}
-              rotateInUpLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInDownLeft"}
-              rotateInDownLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInUpRight"}
-              rotateInUpRight
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInDownRight"}
-              rotateInDownRight
-            %h5 Rotate Out
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOut"}
-              rotateOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutUpLeft"}
-              rotateOutUpLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutDownLeft"}
-              rotateOutDownLeft
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutUpRight"}
-              rotateOutUpRight
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutDownRight"}
-              rotateOutDownRight
-            %h5 Flip In
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipIn"}
-              flipIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipInX"}
-              flipInX
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipInY"}
-              flipInY
-            %h5 Flip Out
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipOut"}
-              flipOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipOutX"}
-              flipOutX
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipOutY"}
-              flipOutY
-          .span3
-            %h5 Zoom In
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomIn"}>
-              zoomIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomInCurved"}>
-              zoomInCurved
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomInFlip"}>
-              zoomInFlip
-            %h5 Zoom Out
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOut"}>
-              zoomOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOutCurved"}>
-              zoomOutCurved
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOutFlip"}>
-              zoomOutFlip
-            %h5 Miscellaneous
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flash"}>
-              flash
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "shake"}>
-              shake
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounce"}>
-              bounce
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "tada"}>
-              tada
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "swing"}>
-              swing
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "wobble"}>
-              wobble
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "pulse"}>
-              pulse
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "hinge"}>
-              hinge
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rollIn"}>
-              rollIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rollOut"}>
-              rollOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "lightSpeedIn"}>
-              lightSpeedIn
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "lightSpeedOut"}>
-              lightSpeedOut
-            %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "wiggle"}>
-              wiggle
+            %h4 Choose Effects
 
         .row-fluid
-          %h3 Components
-          .span12
-            .span3
-              %label.checkbox
-                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
-                Effects Plugin
-              %label.checkbox
-                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
-                Transform Plugin
-              %label.checkbox
-                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
-                Scroll Plugin
-          .text-center
-            %input{:type => "submit", :class => "btn btn-large", :value => "Download Package"}
 
+          #plugins-group.span3
+            %h5 Modules
+            %label.checkbox
+              %input{:checked => "checked", :id => "effects-cb", :name => "animations[]", :type => "checkbox", :value => ""}>
+              Effects
+            %label.checkbox
+              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
+              Transform
+            %label.checkbox
+              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
+              Scroll
+
+          #effects-group.span9
+            .span4
+              %h5 Bounce In
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceIn"}
+                bounceIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInUp"}
+                bounceInUp
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInDown"}
+                bounceInDown
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInLeft"}
+                bounceInLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceInRight"}
+                bounceInRight
+
+              %h5 Bounce Out
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOut"}
+                bounceOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutUp"}
+                bounceOutUp
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutDown"}
+                bounceOutDown
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutLeft"}
+                bounceOutLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounceOutRight"}
+                bounceOutRight
+
+              %h5 Fade In
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeIn"}
+                fadeIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInUp"}
+                fadeInUp
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInDown"}
+                fadeInDown
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInLeft"}
+                fadeInLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInRight"}
+                fadeInRight
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInUpBig"}
+                fadeInUpBig
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInDownBig"}
+                fadeInDownBig
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInLeftBig"}
+                fadeInLeftBig
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeInRightBig"}
+                fadeInRightBig
+
+            .span4
+
+              %h5 Fade Out
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOut"}
+                fadeOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutUp"}
+                fadeOutUp
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutDown"}
+                fadeOutDown
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutLeft"}
+                fadeOutLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutRight"}
+                fadeOutRight
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutUpBig"}
+                fadeOutUpBig
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutDownBig"}
+                fadeOutDownBig
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutLeftBig"}
+                fadeOutLeftBig
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fadeOutRightBig"}
+                fadeOutRightBig
+
+              %h5 Flip In
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipIn"}
+                flipIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipInX"}
+                flipInX
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipInY"}
+                flipInY
+
+              %h5 Flip Out
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipOut"}
+                flipOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipOutX"}
+                flipOutX
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flipOutY"}
+                flipOutY
+
+              %h5 Miscellaneous
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flash"}>
+                flash
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "shake"}>
+                shake
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "bounce"}>
+                bounce
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "tada"}>
+                tada
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "swing"}>
+                swing
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "wobble"}>
+                wobble
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "pulse"}>
+                pulse
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "hinge"}>
+                hinge
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rollIn"}>
+                rollIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rollOut"}>
+                rollOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "lightSpeedIn"}>
+                lightSpeedIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "lightSpeedOut"}>
+                lightSpeedOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "wiggle"}>
+                wiggle
+
+
+            .span4
+              %h5 Rotate In
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateIn"}
+                rotateIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInUpLeft"}
+                rotateInUpLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInDownLeft"}
+                rotateInDownLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInUpRight"}
+                rotateInUpRight
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateInDownRight"}
+                rotateInDownRight
+
+              %h5 Rotate Out
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOut"}
+                rotateOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutUpLeft"}
+                rotateOutUpLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutDownLeft"}
+                rotateOutDownLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutUpRight"}
+                rotateOutUpRight
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "rotateOutDownRight"}
+                rotateOutDownRight
+
+              %h5 Slide In
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideInLeft"}
+                slideInLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideInRight"}
+                slideInRight
+
+              %h5 Slide Out
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideOutLeft"}
+                slideOutLeft
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slideOutRight"}
+                slideOutRight
+
+              %h5 Zoom In
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomIn"}>
+                zoomIn
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomInCurved"}>
+                zoomInCurved
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomInFlip"}>
+                zoomInFlip
+
+              %h5 Zoom Out
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOut"}>
+                zoomOut
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOutCurved"}>
+                zoomOutCurved
+              %label.checkbox
+                %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOutFlip"}>
+                zoomOutFlip
+
+      #download-btn
+        %input{:type => "submit", :class => "btn btn-large xlarge", :value => "Download Package"}
