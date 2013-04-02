@@ -1,7 +1,8 @@
 %header#header
-  .wrapper
+  .container
     %h1
       animat.<span class="silver">io</span>
+
     %ul#nav.pull-right
       %li.active
         %a{:href => "#getting-started"} Getting Started
@@ -9,6 +10,8 @@
         %a{:href => "#effects"} Using Effects
       %li
         %a{:href => "#transforms"} Animating Elements
+      %li
+        %a{:href => "#scrolling"} Scrolling Animations
       %li
         %a{:href => "#customize"} Customize
 #content
@@ -22,7 +25,7 @@
 
   %hr.mtn
 
-  .wrapper
+  .container
     %section#getting-started
       %h2 Getting Started
       .row
@@ -302,6 +305,152 @@
 
     %hr
 
+    %section#scrolling
+
+      %h2.mb20 Scrolling Animations
+      .row-fluid
+        .span6
+          %p
+            You can apply scrolling effects to any container element which has a vertical overflow and contains block-level children. You can configure the scrolling container inline by utilizing the HTML data attribute
+            %code data-type="flip"
+            or generate it with pure JS.
+          %h4.mt20 Create using JS:
+          %pre.prettyprint.linenums.lang-js.mt10
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).animateScroll('fan', {
+                  height: 250,
+                  width: 500
+                });
+
+              &lt;/script&gt;
+        .span6
+          %h4 Create using inline data:
+          %pre.prettyprint.linenums.lang-html.mt10
+            :preserve
+
+              &lt;ul data-widget="animateScroll" data-type="cards"&gt;
+                &lt;li&gt;...&lt;/li&gt;
+                &lt;li&gt;...&lt;/li&gt;
+                &lt;li&gt;...&lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;script type="text/javascript"&gt;
+
+                // apply animation to elements with data-widget="animateScroll"
+                $('[data-widget="animateScroll"]').animateScroll('grow');
+
+              &lt;/script&gt;
+      .row-fluid
+        .span8.scroll-effects
+          %h3 Effects
+          .row-fluid
+            .span4
+              %button.btn.block{"data-effect" => "cards"} Cards
+              %button.btn.block{"data-effect" => "fan"} Fan
+              %button.btn.block{"data-effect" => "grow"} Grow
+              %button.btn.block{"data-effect" => "slide"} Slide
+            .span4
+              %button.btn.block{"data-effect" => "curl"} Curl
+              %button.btn.block{"data-effect" => "flip"} Flip
+              %button.btn.block{"data-effect" => "helix"} Helix
+              %button.btn.block{"data-effect" => "twirl"} Twirl
+            .span4
+              %button.btn.block{"data-effect" => "fader"} Fader
+              %button.btn.block{"data-effect" => "fly"} Fly
+              %button.btn.block{"data-effect" => "papercut"} Papercut
+              %button.btn.block{"data-effect" => "zipper"} Zipper
+        .span4
+          %h5#current Effect: Cards
+          .list-wrapper
+            .row-fluid
+              .span12
+                %ul#list.unstyled{"data-last" => "cards", "data-type" => "cards", "data-widget" => "animateScroll"}
+                  %li
+                    .row-fluid
+                      .span8
+                        .tile-large
+                      .span4
+                        .span12
+                          .tile-mini
+                          .tile-mini
+                  %li
+                    .row-fluid
+                      .span12
+                        .span4
+                          .tile-mini
+                        .span8
+                          .tile-large-single
+                  %li
+                    .row-fluid
+                      .span12
+                        .span4
+                          .tile-mini
+                        .span4
+                          .tile-mini
+                        .span4
+                          .tile-mini
+                  %li
+                    .row-fluid
+                      .span8
+                        .tile-large
+                      .span4
+                        .span12
+                          .tile-mini
+                          .tile-mini
+                  %li
+                    .row-fluid
+                      .span12
+                        .span4
+                          .tile-mini
+                        .span8
+                          .tile-large-single
+                  %li
+                    .row-fluid
+                      .span12
+                        .span4
+                          .tile-mini
+                        .span4
+                          .tile-mini
+                        .span4
+                          .tile-mini
+                  %li
+                    .row-fluid
+                      .span8
+                        .tile-large
+                      .span4
+                        .span12
+                          .tile-mini
+                          .tile-mini
+                  %li
+                    .row-fluid
+                      .span12
+                        .span4
+                          .tile-mini
+                        .span8
+                          .tile-large-single
+                  %li
+                    .row-fluid
+                      .span12
+                        .span4
+                          .tile-mini
+                        .span4
+                          .tile-mini
+                        .span4
+                          .tile-mini
+                  %li
+                    .row-fluid
+                      .span8
+                        .tile-large
+                      .span4
+                        .span12
+                          .tile-mini
+                          .tile-mini
+
+    %hr
+
     %form{ action: '/build', method: 'POST' }
       %section#customize.download
         %h2 Customize Package
@@ -317,7 +466,7 @@
         .row-fluid
 
           #plugins-group.span3
-            %h5 Modules
+            %h5 Plugins
             %label.checkbox
               %input{:checked => "checked", :id => "effects-cb", :name => "animations[]", :type => "checkbox", :value => ""}>
               Effects
@@ -325,8 +474,8 @@
               %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
               Transform
             %label.checkbox
-              %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => ""}>
-              Scroll
+              %input{:checked => "checked", :id => "scrolling-cb", :name => "animations[]", :type => "checkbox", :value => ""}>
+              Scrolling Animations
 
           #effects-group.span9
             .span4
@@ -560,6 +709,58 @@
               %label.checkbox
                 %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zoomOutFlip"}>
                 zoomOutFlip
+
+        .row-fluid
+          .span3
+            &nbsp;
+          #effects-scrolling-group.span9
+            .row-fluid
+              .pull-left
+                %h5 Scrolling Effects
+              .pull-right
+                #toggle-scrolling.btn.btn-small
+                  Toggle all
+
+            .row-fluid#scrolling-group
+              .span4
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "cards"}
+                  Cards
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fan"}
+                  Fan
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "grow"}
+                  Grow
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "slide"}
+                  Slide
+              .span4
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "curl"}
+                  Curl
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "flip"}
+                  Flip
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "helix"}
+                  Helix
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "twirl"}
+                  Twirl
+              .span4
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fader"}
+                  Fader
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "fly"}
+                  Fly
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "papercut"}
+                  Papercut
+                %label.checkbox
+                  %input{:checked => "checked", :name => "animations[]", :type => "checkbox", :value => "zipper"}
+                  Zipper
 
       #download-btn
         %input{:type => "submit", :class => "btn btn-large xlarge", :value => "Download Package"}
