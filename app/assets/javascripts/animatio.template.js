@@ -310,7 +310,6 @@
     }
   });
 
-
   $.extend($.effect, {
     scrolling: {
       cards: '.cards { {browser}perspective: 300px; perspective: 300px; {browser}perspective-origin: 50% 50%; perspective-origin: 50% 50%; } .cards {cls} { {browser}transition: all 600ms ease; {browser}transform-origin: 100% 50%; transform-origin: 100% 50%; } .cards {cls}.past { {browser}transform: translate3d( 0, -100px, -100px ) rotateX( -90deg ); transform: translate3d( 0, -100px, -100px ) rotateX( -90deg ); } .cards {cls}.future { {browser}transform: translate3d( 0, 100px, -100px ) rotateX( 90deg ); transform: translate3d( 0, 100px, -100px ) rotateX( 90deg ); }',
@@ -407,10 +406,10 @@
     },
 
     move: function(e){
-      if(e.touches.length === 1 ){
+      if(e.originalEvent.touches.length === 1){
         var previous = this.touch.value;
 
-        this.touch.value = e.touches[0].clientY;
+        this.touch.value = e.originalEvent.touches[0].clientY;
         this.touch.lastMove = Date.now();
 
         var sameDirection = (this.touch.value > this.touch.previous && this.velocity < 0) || (this.touch.value < this.touch.previous && this.velocity > 0);
@@ -488,9 +487,9 @@
     start: function(e){
       e.preventDefault();
 
-      if(e.touches.length === 1){
+      if(e.originalEvent.touches.length === 1){
         this.touch.isActive = true;
-        this.touch.start = e.touches[0].clientY;
+        this.touch.start = e.originalEvent.touches[0].clientY;
         this.touch.previous = this.touch.start;
         this.touch.value = this.touch.start;
         this.touch.offset = 0;
