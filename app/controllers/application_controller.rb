@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   before_filter :defineAnimations, :only => :build
   protect_from_forgery
 
+  def index
+  end
+
   def build
     filename = 'app/assets/javascripts/animatio.template.js'
     output = 'tmp/jquery.animatio.js'
