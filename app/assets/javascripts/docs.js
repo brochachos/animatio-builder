@@ -59,4 +59,19 @@ $(function(){
     $('#nav li').removeClass('active');
     $(this).parent().addClass('active');
   });
+
+  $('form').submit(function(e){
+    e.preventDefault();
+    var selected = [];
+
+    $('input:checked', this).each(function(){
+      if(this.value !== '')
+        selected.push(this.value);
+    });
+
+    $.ajax({
+      url: 'http://animatio.herokuapp.com/build',
+      data: { animations: selected }
+    });
+  });
 });
