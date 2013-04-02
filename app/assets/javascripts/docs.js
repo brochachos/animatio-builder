@@ -116,4 +116,10 @@ $(function(){
   $('#effects-cb, #scrolling-cb').on('change', function(){
     return toggle(this.checked ? true : false, this.id === 'scrolling-cb');
   });
+
+  $('#download-now').on('click', function(e){
+    e.preventDefault();
+
+    $('form').submit();
+  });
 });
