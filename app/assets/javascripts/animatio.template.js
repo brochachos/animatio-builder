@@ -226,7 +226,6 @@
     }
   });
 
-
   $.fn.transform = function(config, duration, fn){
     config = $.extend(true, {
       duration: '500ms'
@@ -258,21 +257,20 @@
 
       var $t = this,
           css = {},
-          transforms = [],
-          transitions = [],
+          cssTransforms = [],
+          cssTransitions = [],
           timeout = wait(duration, delay),
           fn, property, sleep, value;
 
       for(property in config){
-        if(!(properties).test(property)){
-          if((transforms).test(property)){
-            transforms.push(property + '(' + config[property] + ')');
+        if(!properties.test(property)){
+          if(transforms.test(property)){
+            cssTransforms.push(property + '(' + config[property] + ')');
           }else{
-            if((/^([-+=])/).test(config[property])){
-
+            if((/^(?:(-|\+)(?:=))/).test(config[property])){
               var direction = RegExp.$1,
-                  number = parseInt(String(config[property]).replace(/[-=+]/g, ''), 10),
-                  current = element.css(property) || 0;
+                  number = parseFloat(String(config[property]).replace(/\+|-|=/g, '')),
+                  current = parseFloat(element.css(property)) || 0;
 
               value = !!~direction.indexOf('+') ? current + number : current - number;
             }else{
@@ -281,18 +279,18 @@
 
             css[property] = value;
 
-            transitions.push(property);
+            cssTransitions.push(property);
           }
         }
       }
 
       css[prefix + 'transition-delay']           = delay;
       css[prefix + 'transition-duration']        = duration;
-      css[prefix + 'transition-property']        = transitions.join(' ');
+      css[prefix + 'transition-property']        = cssTransitions.join(' ');
       css[prefix + 'transition-timing-function'] = easing;
-      css[prefix + 'transform']                  = 'translateZ(0) ' + transforms.join(' ');
+      css[prefix + 'transform']                  = 'translateZ(0) ' + cssTransforms.join(' ');
 
-      element.css(css) && (css = null) && (transforms = transitions = []);
+      element.css(css) && (css = null) && (cssTransforms = cssTransitions = []);
 
       fn = function(e){
         return typeof(e) !== 'undefined' && e.target !== e.originalTarget ? false : $(e.target).unbind('.transform');
