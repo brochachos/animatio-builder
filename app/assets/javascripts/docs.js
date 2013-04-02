@@ -71,6 +71,8 @@ $(function(){
 
     $.ajax({
       url: 'http://animatio.herokuapp.com/build',
+      type: 'POST',
+      dataType: 'json',
       data: { animations: selected }
     });
   });
