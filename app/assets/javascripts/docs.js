@@ -26,6 +26,41 @@ $(function(){
       toggle = function(state, which){
         var options = !which ? effectOptions : scrollOptions;
         return options.prop('checked', state) && (!which ? (effectSelected = state) : (scrollSelected = state));
+      },
+      notification = function(item){
+        var wrapper = $('<div id="ui-notifications"></div>');
+
+        // make sure we have valid notifications object
+        if($.type(item) !== 'object')
+          return;
+
+        wrapper
+          // empty wrapper
+          .empty()
+          // append the first message in our collection
+          .append('<div class="ui-notification ' + item.type + '"><span>' + item.msg + '</span></div>')
+          // append to our content container
+          .appendTo($('#wrapper'));
+
+        // make sure the page is in full view
+        window.scrollTo(0, 0);
+
+        // show notification with animation
+        setTimeout(function(){
+          $('.ui-notification').effect('fadeInDownBig', {
+            duration: '1s'
+          }, function(){
+            var current = $(this);
+            // set delay and fade out
+            setTimeout(function(){
+              current.effect('fadeOutRightBig', {
+                duration: '500ms'
+              }, function(){
+                wrapper.empty().remove();
+              });
+            }, 3000);
+          });
+        }, 350);
       };
 
   $('#content').effect('fadeIn', function(){

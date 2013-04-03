@@ -228,7 +228,12 @@
     }
   });
 
-
+  /**
+   * Perform a custom animation of a set of CSS properties
+   * @param  {Object}   config   The key + value pairs of properties to animate
+   * @param  {Mixed}    duration The string or number in milliseconds or seconds
+   * @param  {Function} fn       The callback method to execute on animation end (optional)
+   */
   $.fn.transform = function(config, duration, fn){
     config = $.extend(true, {
       duration: '500ms'
@@ -253,9 +258,22 @@
   };
 
   $.extend(transform.prototype, {
+    /**
+     * Resets CSS transition properties
+     * @return {Object} The object containing the reset transition properties
+     */
     reset: function(){
       return reset[prefix + 'transition-delay'] = reset[prefix + 'transition-duration'] = reset[prefix + 'transition-property'] = '';
     },
+    /**
+     * Apply animation to one or more elements in a matched set
+     * @param  {Object}   element  The jQuery object
+     * @param  {[type]}   config   The key + value pairs of properties to animate
+     * @param  {[type]}   duration The duration of the animation (optional)
+     * @param  {[type]}   delay    The time to wait before executing the animation (optional)
+     * @param  {[type]}   easing   The animation timing function type (optional)
+     * @param  {Function} callback The callback method to execute on animation end (optional)
+     */
     run: function(element, config, duration, delay, easing, callback){
 
       var $t = this,
@@ -266,10 +284,13 @@
           fn, property, sleep, value;
 
       for(property in config){
+        // check for valid properties
         if(!properties.test(property)){
+          // if property is a transform property
           if(transforms.test(property)){
             cssTransforms.push(property + '(' + config[property] + ')');
           }else{
+            // check for relative values
             if((/^(?:(-|\+)(?:=))/).test(config[property])){
               var direction = RegExp.$1,
                   number = parseFloat(String(config[property]).replace(/\+|-|=/g, '')),
@@ -279,9 +300,9 @@
             }else{
               value = config[property];
             }
-
+            // set property value
             css[property] = value;
-
+            // push property to transition properties collection
             cssTransitions.push(property);
           }
         }
@@ -293,16 +314,20 @@
       css[prefix + 'transition-timing-function'] = easing;
       css[prefix + 'transform']                  = 'translateZ(0) ' + cssTransforms.join(' ');
 
+      // apply CSS and empty references
       element.css(css) && (css = null) && (cssTransforms = cssTransitions = []);
 
       fn = function(e){
         return typeof(e) !== 'undefined' && e.target !== e.originalTarget ? false : $(e.target).unbind('.transform');
       };
 
+      // bind to animation end
       element.on(animationEnd[cleaned] + '.transform', fn);
 
       sleep = setTimeout(function(){
+        // reset CSS transitions
         element.css($t.reset());
+        // trigger callback function
         $.isFunction(callback) && callback.call(element[0]);
 
         sleep && clearTimeout(sleep) && (sleep = null);
