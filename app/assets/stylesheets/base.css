@@ -124,6 +124,10 @@ section {
   cursor: pointer;
   display: block;
   padding: 5px 10px;
+  -webkit-transition: background-color .3s ease-in-out;
+     -moz-transition: background-color .3s ease-in-out;
+      -ms-transition: background-color .3s ease-in-out;
+          transition: background-color .3s ease-in-out;
 }
 
 #header ul li a:hover {
@@ -166,20 +170,30 @@ section {
   color: #444;
   font-size: 110px;
   margin-bottom: 30px;
+  opacity: 0;
 }
 
 #splash h2 {
   color: #6f5a40;
+  -webkit-transform: scale(0);
+     -moz-transform: scale(0);
+          transform: scale(0);
 }
 
 .links {
+  margin: 10px auto 0;
   position: absolute;
   right: -20px;
+  text-align: right;
   top: 60px;
-  margin: 10px auto 0;
-  text-align: center;
   width: 400px;
   z-index: 99;
+}
+
+.links .fb-like {
+  margin-left: -4px;
+  margin-top: -5px;
+  margin-right: 5px;
 }
 
 .links .inline {

@@ -28,9 +28,13 @@ $(function(){
         return options.prop('checked', state) && (!which ? (effectSelected = state) : (scrollSelected = state));
       };
 
-  header.effect('fadeInDownBig', function(){
-    $('#content').effect('fadeIn');
+  $('#content').effect('fadeIn', function(){
+    $('#splash h1').effect('flipInY');
+    $('#splash h2').effect('zoomIn', function(){
+      $('#download-now').effect('tada');
+    });
   });
+
 
   /*-------------------------------------
     Effects
