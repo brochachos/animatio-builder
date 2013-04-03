@@ -64,9 +64,10 @@ $(function(){
       };
 
   $('#content').effect('fadeIn', function(){
-    $('#splash h1').effect('flipInY');
-    $('#splash h2').effect('zoomIn', function(){
-      $('#download-now').effect('tada');
+    $('#splash h1').effect('flipInY', function(){
+      $('#splash h2').effect('zoomIn', function(){
+        $('#download-now').effect('tada');
+      });
     });
   });
 
