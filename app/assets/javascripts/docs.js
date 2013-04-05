@@ -87,6 +87,25 @@ $(function(){
     });
   });
 
+  $('#transitions button').each(function(){
+    var container = $('#window'),
+        one = $('#one'),
+        two = $('#two'),
+        reverse = {
+          'In': 'Out',
+          'Out': 'In'
+        };
+
+    $(this).on('click', function(){
+      var fx = $(this).data('effect'),
+          type = (/(In|Out)/g).test(fx),
+          copy = fx,
+          opposite = copy.replace(RegExp.$1, '') + reverse[RegExp.$1]
+
+      one.effect(type == 'In' ? opposite : fx, { duration: '1s' });
+      two.effect(type == 'In' ? fx : opposite, { duration: '1s' });
+    });
+  });
   /*-------------------------------------
     Transforms
    -------------------------------------*/
@@ -97,7 +116,7 @@ $(function(){
         $('#size-box').transform({ left: '-=100', top: '+=' + 60, width: '-=' + 200, height: 50}, 1000, function(){
           $('#size-box').transform({ left: '-=100', top: '+=' + 60, opacity: 1, width: '+=' + 500, height: 500 }, 1000, function(){
             $('#size-box').transform({ left: '50', top: 40, width: 200, height: 100}, 1500, function(){
-              $('#size-box').transform({ left: 40, top: 100, width: 200, height: 50}, 1500);
+              $('#size-box').transform({ left: 40, top: 100, width: 200, height: 50, opacity: 0}, 1500);
             });
           });
         });

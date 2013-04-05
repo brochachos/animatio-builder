@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'thin'
 gem 'haml'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
