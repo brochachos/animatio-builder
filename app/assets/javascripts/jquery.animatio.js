@@ -93,8 +93,19 @@
     zoomInFlip: '0% { {browser}transform: scale(0) translateX(-100%) translateY(-100%) rotate(45deg) rotateX(-180deg) rotateY(-180deg) } 100% { {browser}transform: scale(1) translateX(0) translateY(0) rotate(0deg) rotateX(0deg) rotateY(0deg) }',
     zoomOut: "0% {{browser}transform: scale(1);} 100% { opacity: 0; {browser}transform: scale(.1);}",
     zoomOutCurved: '0% { {browser}transform: scale(1) translateX(0) translateY(0) } 100% { {browser}transform: scale(0) translateX(-100%)  translateY(-100%) }',
-    zoomOutFlip: '0% { {browser}transform: scale(1) translateX(0) translateY(0) rotate(0deg) rotateX(0deg) rotateY(0deg) } 100% { {browser}transform: scale(0) translateX(-100%) translateY(-100%) rotate(45deg) rotateX(-180deg) rotateY(-180deg) }'
+    zoomOutFlip: '0% { {browser}transform: scale(1) translateX(0) translateY(0) rotate(0deg) rotateX(0deg) rotateY(0deg) } 100% { {browser}transform: scale(0) translateX(-100%) translateY(-100%) rotate(45deg) rotateX(-180deg) rotateY(-180deg) }',
+
+    swapLeftIn: '0% { z-index: 0; {browser}animation-timing-function: ease-out; {browser}animation-fill-mode: both; {browser}transform: perspective(600) translate3d(0, 0, -800px) rotateY(-45deg); } 35% { {browser}transform: translate3d(100%, 0px, -800px) rotateY(-20deg); } 100% { z-index: 10; }',
+    swapLeftOut: '0% { z-index: 10; {browser}animation-timing-function: ease-out; {browser}animation-fill-mode: both; {browser}transform: translate3d(0, 0, 0) rotateY(0deg); opacity: 1; } 35% { {browser}transform: translate3d(-100%, 0px, -800px) rotateY(25deg); opacity: 1; } 100% { {browser}transform: perspective(700px) translate3d(0px, 0px, -800px) rotateY(70deg); z-index: 0;  opacity: 0; }',
+    swapRightOut: '0% { z-index: 10; {browser}animation-timing-function: ease-out; {browser}animation-fill-mode: both; {browser}transform: translate3d(0, 0, 0) rotateY(0deg); opacity: 1; } 35% { {browser}transform: translate3d(100%, 0px, -800px) rotateY(-25deg); opacity: 1; } 100% { {browser}transform: perspective(700px) translate3d(0px, 0px, -800px) rotateY(-70deg); z-index: 0; opacity: 0; }',
+    swapRightIn: '0% {z-index: 0; {browser}animation-timing-function: ease-out; {browser}animation-fill-mode: both; {browser}transform: perspective(600) translate3d(0, 0, -800px) rotateY(-45deg); } 35% { {browser}transform: translate3d(-100%, 0px, -800px) rotateY(-20deg); } 100% { z-index: 10; }',
+    cubeLeftIn: '0% { z-index: 0; {browser}animation-timing-function: ease-in-out; {browser}transform: perspective(700) rotateY(90deg) translateZ(130px); } 100% { {browser}transform: perspective(800) rotateY(0deg) translateZ(0) translateX(0); z-index: 10; }',
+    cubeLeftOut: '0% { z-index: 10; {browser}animation-timing-function: ease-in-out; {browser}transform: perspective(800) rotateY(0deg) translateZ(0); } 100% { {browser}transform: perspective(700) rotateY(-90deg) translateZ(130px); z-index: 0; }',
+    cubeRightIn: '0% { z-index: 0; {browser}animation-timing-function: ease-in-out; {browser}transform: perspective(700) rotateY(-90deg) translateZ(130px); } 100% { {browser}transform: perspective(800) rotateY(0deg) translateZ(0) translateX(0); z-index: 10; }',
+    cubeRightOut: '0% { z-index: 10; {browser}animation-timing-function: ease-in-out; {browser}transform: perspective(800) rotateY(0deg) translateZ(0); } 100% { {browser}transform: perspective(700) rotateY(90deg) translateZ(130px); z-index: 0; }'
   };
+
+
 
   var global = window,
       document = global.document,

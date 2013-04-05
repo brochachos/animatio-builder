@@ -9,9 +9,11 @@
       %li
         %a{:href => "#effects"} Using Effects
       %li
-        %a{:href => "#transforms"} Animating Elements
+        %a{:href => "#transitions"} Transitioning Elements
       %li
         %a{:href => "#scrolling"} Scrolling Animations
+      %li
+        %a{:href => "#transforms"} Animating Elements
       %li
         %a{:href => "#customize"} Customize
 
@@ -270,57 +272,36 @@
 
     %hr
 
-    %section#transforms
-      %h2.mb20 Animating Elements
-      .row-fluid
-        .span6
-          %p You can easily transform any object by simply defining the properties you would like to animate.
+    %section#transitions
+      %h2
+        Transitioning Elements
+        %small Built for Webkit browsers - Limited support for Firefox &amp; IE.</small>
 
-          %h4.mt20 Create using JS:
-          %pre.prettyprint.linenums.lang-js.mt10
-            :preserve
-
-              &lt;script type="text/javascript"&gt;
-
-                $(selector).transform({
-                  left: '-=100',
-                  top: '+=' + 60,
-                  opacity: 1,
-                  width: '+=' + 500,
-                  height: 200
-                });
-
-              &lt;/script&gt;
-        .span6
-          %p &nbsp;
-
-          %h4.mt20 Using callbacks:
-          %pre.prettyprint.linenums.lang-html.mt10
-            :preserve
-
-              &lt;script type="text/javascript"&gt;
-
-                $(selector).transform({
-                  left: '-=100',
-                  top: '+=' + 60
-                }, '1s', function(){
-                  $(this).transform({ width: 500 }, '1s');
-                })
-
-              &lt;/script&gt;
+      %br
 
       .row-fluid
-        .span12{:style => "position: relative; height: 500px;"}
-          %button#animate-box.btn.block Animating CSS Properties
-          #size-box
-
-    %section#transform
-      .row-fliud.rel
-        #boxer Animate me!
-
-      .row-fluid
-        .span12
-          %button#twist-box.btn.block Using CSS Transforms and Properties
+        .span4
+          .iphone
+            #window
+              #one.page
+                .logo
+              #two.page
+                .logo
+        .span8
+          .span6
+            %h5 Swap
+            .span6
+              %button.btn.block{"data-effect" => "swapRightIn"} swapRightIn
+              %button.btn.block{"data-effect" => "swapRightOut"} swapRightOut
+              %button.btn.block{"data-effect" => "swapLeftIn"} swapLeftIn
+              %button.btn.block{"data-effect" => "swapLeftOut"} swapLeftOut
+          .span6
+            %h5 Cube
+            .span6
+              %button.btn.block{"data-effect" => "cubeRightIn"} cubeRightIn
+              %button.btn.block{"data-effect" => "cubeRightOut"} cubeRightOut
+              %button.btn.block{"data-effect" => "cubeLeftIn"} cubeLeftIn
+              %button.btn.block{"data-effect" => "cubeLeftOut"} cubeLeftOut
 
     %hr
 
@@ -383,90 +364,146 @@
               %button.btn.block{"data-effect" => "zipper"} Zipper
         .span4
           %h5#current Effect: Cards
-          .list-wrapper
+          .iphone
+            .list-wrapper
+              .row-fluid
+                .span12
+                  %ul#list.unstyled{"data-last" => "cards", "data-type" => "cards", "data-widget" => "animateScroll"}
+                    %li
+                      .row-fluid
+                        .span8
+                          .tile-large
+                        .span4
+                          .span12
+                            .tile-mini
+                            .tile-mini
+                    %li
+                      .row-fluid
+                        .span12
+                          .span4
+                            .tile-mini
+                          .span8
+                            .tile-large-single
+                    %li
+                      .row-fluid
+                        .span12
+                          .span4
+                            .tile-mini
+                          .span4
+                            .tile-mini
+                          .span4
+                            .tile-mini
+                    %li
+                      .row-fluid
+                        .span8
+                          .tile-large
+                        .span4
+                          .span12
+                            .tile-mini
+                            .tile-mini
+                    %li
+                      .row-fluid
+                        .span12
+                          .span4
+                            .tile-mini
+                          .span8
+                            .tile-large-single
+                    %li
+                      .row-fluid
+                        .span12
+                          .span4
+                            .tile-mini
+                          .span4
+                            .tile-mini
+                          .span4
+                            .tile-mini
+                    %li
+                      .row-fluid
+                        .span8
+                          .tile-large
+                        .span4
+                          .span12
+                            .tile-mini
+                            .tile-mini
+                    %li
+                      .row-fluid
+                        .span12
+                          .span4
+                            .tile-mini
+                          .span8
+                            .tile-large-single
+                    %li
+                      .row-fluid
+                        .span12
+                          .span4
+                            .tile-mini
+                          .span4
+                            .tile-mini
+                          .span4
+                            .tile-mini
+                    %li
+                      .row-fluid
+                        .span8
+                          .tile-large
+                        .span4
+                          .span12
+                            .tile-mini
+                            .tile-mini
+
+    %hr
+
+    %section#transforms
+      %h2.mb20 Animating Elements
+      .row-fluid
+        .span6
+          %p You can easily transform any object by simply defining the properties you would like to animate.
+
+          %h4.mt20 Create using JS:
+          %pre.prettyprint.linenums.lang-js.mt10
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).transform({
+                  left: '-=100',
+                  top: '+=' + 60,
+                  opacity: 1,
+                  width: '+=' + 500,
+                  height: 200
+                });
+
+              &lt;/script&gt;
+        .span6
+          %p &nbsp;
+
+          %h4.mt20 Using callbacks:
+          %pre.prettyprint.linenums.lang-html.mt10
+            :preserve
+
+              &lt;script type="text/javascript"&gt;
+
+                $(selector).transform({
+                  left: '-=100',
+                  top: '+=' + 60
+                }, '1s', function(){
+                  $(this).transform({ width: 500 }, '1s');
+                })
+
+              &lt;/script&gt;
+
+      .row-fluid
+        .span6
+          .rel
+            %button#animate-box.btn.block Animating CSS Properties
+            #size-box
+        .span6
+          .rel
+            #boxer Animate me!
+
             .row-fluid
               .span12
-                %ul#list.unstyled{"data-last" => "cards", "data-type" => "cards", "data-widget" => "animateScroll"}
-                  %li
-                    .row-fluid
-                      .span8
-                        .tile-large
-                      .span4
-                        .span12
-                          .tile-mini
-                          .tile-mini
-                  %li
-                    .row-fluid
-                      .span12
-                        .span4
-                          .tile-mini
-                        .span8
-                          .tile-large-single
-                  %li
-                    .row-fluid
-                      .span12
-                        .span4
-                          .tile-mini
-                        .span4
-                          .tile-mini
-                        .span4
-                          .tile-mini
-                  %li
-                    .row-fluid
-                      .span8
-                        .tile-large
-                      .span4
-                        .span12
-                          .tile-mini
-                          .tile-mini
-                  %li
-                    .row-fluid
-                      .span12
-                        .span4
-                          .tile-mini
-                        .span8
-                          .tile-large-single
-                  %li
-                    .row-fluid
-                      .span12
-                        .span4
-                          .tile-mini
-                        .span4
-                          .tile-mini
-                        .span4
-                          .tile-mini
-                  %li
-                    .row-fluid
-                      .span8
-                        .tile-large
-                      .span4
-                        .span12
-                          .tile-mini
-                          .tile-mini
-                  %li
-                    .row-fluid
-                      .span12
-                        .span4
-                          .tile-mini
-                        .span8
-                          .tile-large-single
-                  %li
-                    .row-fluid
-                      .span12
-                        .span4
-                          .tile-mini
-                        .span4
-                          .tile-mini
-                        .span4
-                          .tile-mini
-                  %li
-                    .row-fluid
-                      .span8
-                        .tile-large
-                      .span4
-                        .span12
-                          .tile-mini
-                          .tile-mini
+                %button#twist-box.btn.block Using CSS Transforms and Properties
+    %br
 
     %hr
 
