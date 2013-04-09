@@ -105,8 +105,6 @@
     cubeRightOut: '0% { z-index: 10; {browser}animation-timing-function: ease-in-out; {browser}transform: perspective(800) rotateY(0deg) translateZ(0); } 100% { {browser}transform: perspective(700) rotateY(90deg) translateZ(130px); z-index: 0; }'
   };
 
-
-
   var global = window,
       document = global.document,
       documentElement = document.documentElement,
@@ -128,8 +126,10 @@
       supportsTouch = ('ontouchstart' in window),
       // CSS transforms
       transforms = /^((perspective|rotate|scale|skew|translate)(X|Y|Z|3d)?|matrix(3d)?)$/i,
-      // transition end map
-      animationEnd = { webkit: 'webkitTransitionEnd', moz: 'transitionend', o: 'oTransitionEnd', ms: 'transitionend' },
+      // transitionEnd map
+      transitionEnd = { webkit: 'webkitTransitionEnd', moz: 'transitionend', o: 'oTransitionEnd',  ms: 'transitionend' },
+      // animationEnd map
+      animationEnd = { webkit: 'webkitAnimationEnd', moz: 'animationend', o: 'oAnimationEnd',  ms: 'animationend' },
       /**
        * Determines if we've already created our inline style block to store our animation rules in
        * @return {Boolean} Always returns the value of true
@@ -253,7 +253,6 @@
     run: function(type, config, target, fn){
       var element = $(target),
           animation = null,
-          animationEnd = { webkit: 'webkitAnimationEnd', moz: 'animationend', o: 'oAnimationEnd', ms: 'animationend' },
           prev = element.css(prefix + 'animation-name'),
           css = {};
 
@@ -399,7 +398,7 @@
       };
 
       // bind to animation end
-      element.on(animationEnd[cleaned] + '.transform', fn);
+      element.on(transitionEnd[cleaned] + '.transform', fn);
 
       sleep = setTimeout(function(){
         // reset CSS transitions
